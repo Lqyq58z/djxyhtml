@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="董佳欣颖的照片墙" />
+    <title>董佳欣颖天天开心</title>
+    <link rel="stylesheet" href="dongjiaxinying.css" />
+  </head>
+  <body
+    data-auto-start="false"
+    data-password="1020"
+    data-disable-cake-burst="true"
+    data-title-text="董佳欣颖天天开心"
+    data-english-title="DJXY · 天天开心"
+    data-wall-id="dong-jia-xin-ying-birthday-wall"
+    data-notes-key="dongJiaXinYingBirthdayNotes"
+  >
+    <section class="intro" id="intro" aria-label="董佳欣颖开场动画">
+      <div class="letter-lights" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <div class="password-shell">
+        <div class="password-card" id="passwordCard">
+          <p class="letter-mark letter-to">TO: DJXY</p>
+          <label for="passwordInput">请输入密码</label>
+          <div class="password-row">
+            <input
+              id="passwordInput"
+              type="password"
+              inputmode="numeric"
+              autocomplete="off"
+              maxlength="4"
+              placeholder="四位数字"
+            />
+            <button id="unlockButton" type="button">进入</button>
+          </div>
+          <p class="hint" id="hint">属于你的小小宇宙，等一句暗号。</p>
+        </div>
+        <p class="password-credit">From：LQY</p>
+      </div>
+
+      <div class="cake-stage" id="cakeStage" aria-hidden="true">
+        <div class="cake photo-intro-visual" id="cakeEmoji">
+          <img src="assets/IMG_9822.jpg" alt="" />
+        </div>
+        <div class="cake-burst" id="cakeBurst"></div>
+      </div>
+
+      <p class="entry-line" id="entryLine">即将进入独属于你的小世界...</p>
+      <h1 class="birthday-title" id="birthdayTitle" aria-label="董佳欣颖天天开心"></h1>
+      <canvas id="fireworksCanvas" class="fireworks-canvas" aria-hidden="true"></canvas>
+      <div class="blackout" id="blackout"></div>
+    </section>
+
+    <main class="photo-wall" id="photoWall" aria-label="董佳欣颖的照片墙">
+      <canvas class="sparkle-field" id="sparkleCanvas" aria-hidden="true"></canvas>
+      <audio id="bgMusic" src="assets/djxy-background-music.m4a" preload="auto" loop></audio>
+      <div class="wall-copy">
+        <p>DJXY · 天天开心</p>
+        <h2>董佳欣颖</h2>
+        <p class="wall-from">From：LQY</p>
+      </div>
+      <nav class="corner-actions" aria-label="照片墙小工具">
+        <button id="chooserOpen" type="button">选哪个</button>
+        <button id="notesOpen" type="button">碎碎念</button>
+      </nav>
+      <div class="orbit-space" id="orbitSpace">
+        <article class="photo-bubble center-bubble" id="centerBubble">
+          <div class="photo-frame">
+            <img id="centerPhoto" alt="中心照片" />
+            <span id="centerPlaceholder">上传中心照片</span>
+          </div>
+        </article>
+      </div>
+
+      <div class="upload-dock" aria-label="照片上传入口">
+        <label class="ghost-upload" title="上传中心照片">
+          <input id="centerUpload" type="file" accept="image/*" />
+          中心
+        </label>
+        <label class="ghost-upload" title="上传周围照片">
+          <input id="orbitUpload" type="file" accept="image/*" multiple />
+          照片
+        </label>
+        <button class="ghost-upload" id="addBubbleButton" type="button" title="添加气泡">添加气泡</button>
+        <button class="ghost-upload" id="deleteBubbleButton" type="button" title="删除气泡">删除气泡</button>
+        <input id="bubblePhotoUpload" type="file" accept="image/*" />
+      </div>
+      <aside class="volume-rail" aria-label="背景音乐音量">
+        <span>音量</span>
+        <div
+          class="volume-track"
+          id="volumeTrack"
+          role="slider"
+          tabindex="0"
+          aria-label="背景音乐音量"
+          aria-valuemin="0"
+          aria-valuemax="100"
+          aria-valuenow="50"
+        >
+          <div class="volume-fill" id="volumeFill"></div>
+          <div class="volume-thumb" id="volumeThumb"></div>
+        </div>
+        <input id="volumeSlider" type="range" min="0" max="100" value="50" aria-label="背景音乐音量" />
+      </aside>
+
+      <section class="tool-modal" id="chooserModal" aria-hidden="true">
+        <div class="tool-panel chooser-panel" role="dialog" aria-modal="true" aria-labelledby="chooserTitle">
+          <button class="modal-close" type="button" data-close="chooserModal" aria-label="关闭">关闭</button>
+          <div class="modal-heading">
+            <h3 id="chooserTitle">选哪个</h3>
+          </div>
+          <div class="chooser-layout">
+            <div class="wheel-wrap">
+              <div class="wheel-pointer"></div>
+              <div class="decision-wheel" id="decisionWheel"></div>
+            </div>
+            <div class="chooser-controls">
+              <label class="count-line" for="choiceCount">
+                你有
+                <input id="choiceCount" type="number" min="2" max="8" value="2" />
+                个事拿不定主意呀
+              </label>
+              <div class="choice-list" id="choiceList"></div>
+              <button class="primary-action" id="spinButton" type="button">开始</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="tool-modal" id="resultModal" aria-hidden="true">
+        <div class="tool-panel result-panel" role="dialog" aria-modal="true" aria-labelledby="resultText">
+          <button class="modal-close" type="button" data-close="resultModal" aria-label="关闭">关闭</button>
+          <p class="result-kicker">选好了</p>
+          <h3 id="resultText">看来你要出发了呀</h3>
+        </div>
+      </section>
+
+      <section class="tool-modal" id="notesModal" aria-hidden="true">
+        <div class="tool-panel notes-panel" role="dialog" aria-modal="true" aria-labelledby="notesTitle">
+          <button class="modal-close" type="button" data-close="notesModal" aria-label="关闭">关闭</button>
+          <div class="modal-heading">
+            <h3 id="notesTitle">董佳欣颖的碎碎念</h3>
+          </div>
+          <div class="notes-layout">
+            <div class="note-editor">
+              <textarea id="noteInput" placeholder="今天想说点什么呀..."></textarea>
+              <button class="primary-action" id="saveNoteButton" type="button">保存</button>
+            </div>
+            <aside class="note-archive" aria-label="按日期存档">
+              <h4>日期存档</h4>
+              <div id="noteArchive" class="archive-list"></div>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section class="tool-modal" id="confirmModal" aria-hidden="true">
+        <div class="tool-panel confirm-panel" role="dialog" aria-modal="true" aria-labelledby="confirmTitle">
+          <button class="modal-close" type="button" data-close="confirmModal" aria-label="关闭">关闭</button>
+          <p class="result-kicker">再确认一下</p>
+          <h3 id="confirmTitle">确定要删除这条碎碎念吗？</h3>
+          <div class="confirm-actions">
+            <button class="soft-action" id="cancelConfirmButton" type="button">取消</button>
+            <button class="danger-action" id="confirmDeleteButton" type="button">删除</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="tool-modal" id="cropModal" aria-hidden="true">
+        <div class="tool-panel crop-panel" role="dialog" aria-modal="true" aria-labelledby="cropTitle">
+          <button class="modal-close" type="button" id="cropCancelButton" aria-label="关闭">关闭</button>
+          <div class="modal-heading">
+            <h3 id="cropTitle">调整照片范围</h3>
+          </div>
+          <div class="crop-layout">
+            <div class="crop-stage">
+              <canvas id="cropCanvas" width="520" height="520" aria-label="照片裁切预览"></canvas>
+            </div>
+            <div class="crop-controls">
+              <p>拖动照片调整位置，用滑杆放大缩小，圆形区域就是最终显示在气泡里的范围。</p>
+              <label for="cropZoom">缩放</label>
+              <input id="cropZoom" type="range" min="100" max="300" value="100" />
+              <button class="primary-action" id="cropConfirmButton" type="button">确定</button>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div class="mode-toast" id="modeToast" aria-hidden="true">
+        <span>删除模式已开启，再次点击“删除气泡”可解除锁定。</span>
+        <button id="modeToastClose" type="button" aria-label="关闭提示">关闭</button>
+      </div>
+    </main>
+
+    <script type="module" src="/script.js"></script>
+  </body>
+</html>

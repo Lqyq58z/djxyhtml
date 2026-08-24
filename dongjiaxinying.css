@@ -1,0 +1,246 @@
+@import url("./styles.css");
+
+.intro,
+.photo-wall {
+  background:
+    linear-gradient(rgba(54, 22, 38, 0.2), rgba(54, 22, 38, 0.2)),
+    url("./assets/djxy-background.jpg") center / cover no-repeat;
+}
+
+.intro::before {
+  opacity: 0.18;
+}
+
+.intro::after {
+  opacity: 0.12;
+}
+
+.password-shell {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  justify-items: center;
+  gap: 14px;
+  width: min(88vw, 430px);
+}
+
+.password-card {
+  width: 100%;
+  padding: 44px 32px 32px;
+  border-color: rgba(255, 255, 255, 0.34);
+  border-radius: 24px;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.07)),
+    rgba(51, 39, 50, 0.7);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.08),
+    0 28px 80px rgba(57, 29, 43, 0.34);
+}
+
+.password-card::before {
+  border-radius: 18px;
+}
+
+.password-card::after {
+  background: linear-gradient(90deg, #ffd07c, #ff91ad);
+  box-shadow: 0 0 22px rgba(255, 145, 173, 0.5);
+}
+
+.password-card label {
+  font-size: 24px;
+  letter-spacing: 0.04em;
+}
+
+.password-row {
+  gap: 12px;
+}
+
+.password-row input,
+.password-row button {
+  border-radius: 14px;
+}
+
+.password-row input {
+  background: rgba(255, 255, 255, 0.13);
+}
+
+.password-row button {
+  min-width: 88px;
+  background: linear-gradient(135deg, #ffd177, #ff8dab);
+  box-shadow: 0 12px 28px rgba(255, 113, 151, 0.22);
+}
+
+.hint {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.password-credit,
+.wall-from {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-shadow: 0 2px 16px rgba(64, 31, 47, 0.34);
+}
+
+.password-credit {
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
+}
+
+.password-card.success + .password-credit {
+  opacity: 0;
+  transform: translateY(-8px);
+}
+
+.password-card.success {
+  filter: none;
+}
+
+.wall-copy {
+  padding: 18px 22px 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 22px;
+  background: rgba(79, 43, 61, 0.18);
+  box-shadow: 0 18px 44px rgba(72, 36, 53, 0.12);
+  backdrop-filter: blur(10px);
+}
+
+.wall-copy h2 {
+  font-size: clamp(46px, 7.4vw, 98px);
+  letter-spacing: 0.02em;
+  text-shadow:
+    0 12px 42px rgba(87, 39, 61, 0.28),
+    0 1px 0 rgba(255, 255, 255, 0.28);
+}
+
+.wall-copy p {
+  color: rgba(255, 255, 255, 0.86);
+  letter-spacing: 0.08em;
+}
+
+.wall-copy .wall-from {
+  margin-top: 12px;
+  font-size: 13px;
+  text-transform: none;
+}
+
+.corner-actions button {
+  border-color: rgba(255, 255, 255, 0.3);
+  border-radius: 999px;
+  background: rgba(81, 45, 62, 0.34);
+  box-shadow: 0 12px 32px rgba(74, 36, 54, 0.14);
+}
+
+.tool-panel {
+  border-color: rgba(255, 255, 255, 0.3);
+  border-radius: 24px;
+  background:
+    radial-gradient(circle at 14% 12%, rgba(255, 151, 182, 0.2), transparent 28%),
+    radial-gradient(circle at 88% 8%, rgba(255, 218, 156, 0.14), transparent 26%),
+    rgba(42, 30, 41, 0.86);
+}
+
+.modal-close,
+.primary-action,
+.soft-action,
+.danger-action,
+.ghost-upload {
+  border-radius: 999px;
+}
+
+.photo-frame {
+  border-color: rgba(255, 255, 255, 0.96);
+  box-shadow:
+    inset 0 0 28px rgba(255, 255, 255, 0.24),
+    0 18px 52px rgba(112, 56, 82, 0.3);
+}
+
+.volume-rail {
+  border-color: rgba(255, 255, 255, 0.28);
+  border-radius: 999px;
+  background: rgba(73, 42, 58, 0.4);
+  box-shadow: 0 18px 44px rgba(72, 35, 53, 0.2);
+}
+
+.volume-fill {
+  background: linear-gradient(0deg, #ffd27f, #ff9db8, #fff2d0);
+}
+
+.photo-intro-visual {
+  width: min(68vw, 430px);
+  height: min(68vw, 430px);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.34);
+  border-radius: 38px;
+  background: #fff;
+  box-shadow:
+    0 28px 90px rgba(0, 0, 0, 0.38),
+    0 0 54px rgba(255, 209, 102, 0.2),
+    0 0 82px rgba(141, 247, 210, 0.14);
+}
+
+.photo-intro-visual img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cake-burst {
+  display: none;
+}
+
+@keyframes cakeReveal {
+  0% {
+    opacity: 0;
+    filter: none;
+    transform: scale(0.72) rotate(-4deg);
+  }
+
+  70% {
+    opacity: 1;
+    filter: none;
+    transform: scale(1.04) rotate(1deg);
+  }
+
+  100% {
+    opacity: 1;
+    filter: none;
+    transform: scale(1) rotate(0);
+  }
+}
+
+@media (max-width: 680px) {
+  .password-shell {
+    width: min(90vw, 390px);
+  }
+
+  .password-card {
+    padding: 40px 22px 28px;
+    border-radius: 20px;
+  }
+
+  .wall-copy {
+    max-width: 64vw;
+    padding: 14px 16px 16px;
+    border-radius: 18px;
+  }
+
+  .wall-copy h2 {
+    font-size: clamp(40px, 13vw, 62px);
+  }
+
+  .wall-copy .wall-from {
+    margin-top: 8px;
+    font-size: 11px;
+  }
+
+  .photo-intro-visual {
+    width: min(78vw, 360px);
+    height: min(78vw, 360px);
+    border-radius: 28px;
+  }
+}
